@@ -1,0 +1,7 @@
+<div class="card">
+    <h2>{{user.nom}} {{user.prenom}} ({{user.age}} ans)</h2>
+    <p>{{user.adresse.numero}} rue {{user.adresse.rue}}, {{user.adresse.ville}}</p>
+    <ng-container *ngFor="let ordinateur of user.ordinateurs">
+        <button>{{ordinateur.marque}} {{ordinateur.modele}} ({{ordinateur.prix}}€)</button>
+    </ng-container>
+</div>

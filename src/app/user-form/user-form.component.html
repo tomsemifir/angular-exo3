@@ -1,0 +1,36 @@
+<form [formGroup]="userForm" (ngSubmit)="validationForm()">
+    <h3>Identité :</h3>
+    <div class="form-part">
+        <label for="nom">Nom :</label>
+        <input type="text" name="nom" formControlName="nom">
+        <label for="prenom">Prénom :</label>
+        <input type="text" name="prenom" formControlName="prenom">
+        <label for="age">Age :</label>
+        <input type="number" name="age" formControlName="age">
+    </div>
+    <h3>Coordonnées :</h3>
+    <div class="form-part" formGroupName="adresse">
+        <label for="numero">Numero :</label>
+        <input type="number" name="numero" formControlName="numero">
+        <label for="rue">Rue :</label>
+        <input type="text" name="rue" formControlName="rue">
+        <label for="ville">Ville :</label>
+        <input type="text" name="ville" formControlName="ville">
+    </div>
+    <h3>Matériel :</h3>
+    <div formArrayName="ordinateurs">
+        <button type="button" (click)="addOrdinateur()">+</button>
+        <ng-container *ngFor="let ordinateur of ordinateurs.controls; let index = index">
+            <div class="form-part" [formGroupName]="index">
+                <h5>Ordinateur n°{{index + 1}}</h5>
+                <label for="marque">Marque :</label>
+                <input type="text" name="marque" formControlName="marque">
+                <label for="modele">Modele :</label>
+                <input type="text" name="modele" formControlName="modele">
+                <label for="prix">Prix :</label>
+                <input type="number" name="prix" formControlName="prix">
+            </div>
+        </ng-container>
+    </div>
+    <button>Valider et envoyer</button>
+</form>

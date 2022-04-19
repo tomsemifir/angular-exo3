@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="elem">
+        <app-user-form (addUserEvent)="addUser($event)"></app-user-form>
+    </div>
+    <div class="elem">
+        <ng-container *ngFor="let user of users">
+            <app-user [user]="user"></app-user>
+        </ng-container>
+    </div>
+</div>
