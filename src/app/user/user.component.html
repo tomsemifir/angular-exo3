@@ -4,4 +4,5 @@
     <ng-container *ngFor="let ordinateur of user.ordinateurs">
         <button>{{ordinateur.marque}} {{ordinateur.modele}} ({{ordinateur.prix}}€)</button>
     </ng-container>
+    <button type="button" (click)="delete()" class="delete">Supprimer</button>
 </div>

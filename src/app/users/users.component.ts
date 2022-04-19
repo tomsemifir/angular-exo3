@@ -46,4 +46,8 @@ export class UsersComponent implements OnInit {
     this.users.push(user);
   }
 
+  deleteUser(user : any) {
+    this.users.splice(this.users.indexOf(user), 1);
+  }
+
 }

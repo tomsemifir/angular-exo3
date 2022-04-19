@@ -4,7 +4,7 @@
     </div>
     <div class="elem">
         <ng-container *ngFor="let user of users">
-            <app-user [user]="user"></app-user>
+            <app-user [user]="user" (deleteUserEvent)="deleteUser($event)"></app-user>
         </ng-container>
     </div>
 </div>

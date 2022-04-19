@@ -19,6 +19,9 @@ export class UserFormComponent implements OnInit {
     }),
     ordinateurs: this.fb.array([])
   })
+  
+  displayAgeError = false;
+
 
   @Output() addUserEvent = new EventEmitter<any>();
 
@@ -41,14 +44,18 @@ export class UserFormComponent implements OnInit {
   }
 
   resetOrdinateurs() {
-    this.ordinateurs.clear();
+    this.ordinateurs.clear()
     this.addOrdinateur();
   }
 
   validationForm() {
-    this.addUserEvent.emit(this.userForm.value);
-    this.userForm.reset();
-    this.resetOrdinateurs();
+    if(this.userForm.value.age >= 18) {
+      this.addUserEvent.emit(this.userForm.value);
+      this.userForm.reset();
+      this.resetOrdinateurs();
+    } else {
+      this.displayAgeError = true;
+    }
   }
 
 }
